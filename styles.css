@@ -1,0 +1,14 @@
+.parent{display: flex;
+    height: 100px;
+text-align: center;
+    flex-wrap: wrap;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 10px;
+}
+.unu{align-content: center;
+background-color: aqua}
+.doi{align-content: flex-end;
+background-color: chartreuse;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>my page</title>
+</head>
+    
+<body>
+<h1>Sign in</h1>    
+    
+    <!-- action -where the form sends data to -->
+    <!-- method -what HTTP method(get/post) -->
+    
+    <form action="/sign-in-url" method="post">
+    <input name="username" type="text" placeholder="username">
+    <input name="email" type="email" placeholder="email">
+    <input name="password" type="password" placeholder="password">
+    <input type="date">
+    <input type="number">
+    <button>LOGIN</button>
+    
+    
+    </form>
+    <h1>login form with label</h1>
+    <form>
+       <label for="username">Username:</label>
+        <input id="username" type="text" placeholder="username" required>
+        <label for="password">Password:</label>
+        <input id="password" type="password" placeholder="Password" required>
+        <input type="submit">
+    
+    
+    </form>
+    
+    <form> 
+    <p>Do you prefer cats or dogs?</p>
+    <label for="dogs">Dogs</label>
+    <input name="petchoise" id="dogs" type="radio" value="dog">
+    
+    <label for="cats">Cats</label>
+    <input name="petchoise" type="radio" value="cats">
+        
+    <p>What is your favourite color?</p>
+        <select name="color">
+            <option>Red</option>
+            <option>orange</option>
+            <option>yellow</option>
+        
+        
+        </select>
+        
+    <input type="text">
+    <textarea name="paragraph" rows="10" cols="10"></textarea>
+    
+        
+    <button>submit</button>
+    
+    </form>
+    
+</body>
+
+
+
+
+
+</html>

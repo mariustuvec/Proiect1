@@ -1,0 +1,37 @@
+.parent {
+    display:flex;
+   
+    height:200px;
+}
+
+.unu {
+   
+    background-color: red;
+    flex:10;
+}
+.doi {
+   
+    background-color: blue;
+    flex:1;
+}
+.trei {
+    flex:1;
+    
+    background-color: green;
+}
+
+.patru {
+    flex:1;
+    
+    background-color: green;
+}
+.cinci {
+    flex:5;
+    
+    background-color: purple;
+}
+.sase {
+    flex:2;
+    
+    background-color: black;
+}
