@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title of the document</title>
+    <script>
+        /*
+        suma primelor n numere naturale
+        */
+        var n; //declarare
+        n = 10; //asignare
+        // var n = 10; declarare + asignare
+        var suma = n * (n + 1) / 2;
+        console.log("suma primelor n numere naturale", suma)
+
+        /*
+        Numarul de numere dintr-un interval inchis
+        */
+        var lInf = 10;
+        var lSup = 20;
+        var nrNumere = lSup - lInf + 1;
+        console.log("am " + nrNumere + " numere in interval")
+
+        /*
+        Raza unui cerc
+         */
+        var r = 10;
+        // var aria = Math.PI * r * r;
+        var aria = Math.PI * Math.pow(r, 2) // Math.pow(r, 2) pentru a ridica la putere
+        console.log("aria cercului este ", aria)
+
+        /*
+        Interschimbarea de variabile, ex :
+        a=b
+        b=a
+        c=a
+         */
+
+        /* Daca 10 muncitori sapa o groapa in 5 ore, in cat timp vor sapa groapa 30 de oameni? 
+         R: 10/30 *5 
+        */
+
+        /*
+        operator: ++ 
+        */
+        var a = 5
+        var b = a++
+        var c = ++a
+        console.log(b, c)
+
+    </script>
+</head>
+
+<body>
+    The content of the document......
+</body>
+
+</html>
