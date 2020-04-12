@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .tabName {
+            background: gainsboro;
+            cursor: pointer;
+            padding: 10px;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        .bodyText {
+            background: white;
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .active,
+        .tabName:hover {
+            background: gray;
+        }
+
+        .tabName:after {
+            content: '\002B';
+            color: black;
+            font-weight: bold;
+            float: right;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        var tabName;
+        var bodyText;
+        var accordion = [
+            {
+                tabName: "section 1",
+                bodyText: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            {
+                tabName: "section 2",
+                bodyText: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            },
+            {
+                tabName: "section 3",
+                bodyText: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            }
+        ]
+
+
+        function start() {
+            for (var i = 0; i < accordion.length; i++) {
+                tabName = document.createElement("div");
+                tabName.className = "tabName";
+                tabName.innerText = accordion[i].tabName;
+                bodyText = document.createElement("div");
+                bodyText.className = "bodyText";
+                bodyText.innerText = accordion[i].bodyText;
+                document.body.appendChild(tabName);
+                document.body.appendChild(bodyText)
+                tabName.addEventListener("click", tabClick);
+                tabName.animate
+            }
+
+        }
+        function tabClick() {
+            this.classList.toggle("active");
+            bodyText = this.nextElementSibling;
+
+            if (bodyText.style.maxHeight) {
+                bodyText.style.maxHeight = null;
+            } else {
+                bodyText.style.maxHeight = bodyText.scrollHeight + "px"
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

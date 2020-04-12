@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Galerie</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            overflow: hidden;
+        }
+
+        .textGalleryImage {
+            position: absolute;
+            padding-left: 2px;
+            background-color: black;
+            border-top: 0.5px black;
+            border-left: 0;
+            border-bottom: 0;
+            border-right: 0;
+            border-style: solid;
+            bottom: 0;
+            height: 0;
+            overflow: hidden;
+            transition: 2s;
+        }
+
+        .title {
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        .description {
+            padding-top: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        .imagesContainer {
+            position: relative;
+            align-content: center;
+            width:300px;
+            height: 300px;
+            margin-top:15px;
+            border: 1px black;
+            border-style: solid;
+            overflow: hidden;
+        }
+
+        .imagesContainer:hover {
+            background-color: rgba(236, 220, 75, 0.3);
+        }
+
+        .imagesContainer:hover>.textGalleryImage {
+            height: 60px;
+            z-index: 2;
+        }
+
+        .image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .imageClick {
+            width:100%;
+            min-height: 160%;
+            margin-top: 0px;
+            border: 1px black;
+            border-style: solid;
+            background-color: rgb(187, 209, 248, 0.8);
+            visibility: hidden;
+            position: absolute;
+            z-index: 1;
+            overflow: hidden;
+            
+        }
+
+        .closingX {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .imageDescription {
+          
+            margin-left: 225px;
+            top: 900px;
+            color: white;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .descriptionOnClick {
+            
+            bottom: 50px;
+            margin-left: 225px;
+            color: white;
+        }
+
+        .fullScreenClick {
+            margin: auto;
+            margin-top: 100px;
+            width: 900px;
+            height: 700px;
+            background-color: blue;
+            border: 1px black;
+            border-style: solid;
+            
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+        document.onkeydown = escape;
+
+        function escape(e) {
+            console.log("escape");
+            if (e.key === "Escape") {
+                imageClick.style.visibility = "hidden";
+            }
+        }
+
+        var numberOfImages = 12;
+        var data;
+
+        function start() {
+            createGallery();
+        }
+
+        function createGallery() {
+            galleryDiv = document.createElement("div");
+            galleryDiv.className = "gallery"
+            imageClick = document.createElement("div");
+            imageClick.className = "imageClick";
+            var closingX = document.createElement("div");
+            closingX.className = "closingX";
+            closingX.innerHTML = "&#x274C";
+            closingX.onclick = closing;
+            imageClick.appendChild(closingX);
+
+            function closing() {
+                imageClick.style.visibility = "hidden";
+            }
+
+            var fullScreenClick = document.createElement("div");
+            fullScreenClick.className = "fullScreenClick";
+            var imageOnClick = document.createElement("img");
+            imageOnClick.className = "imageOnClick";
+            imageOnClick.id = "fullScreenImage";
+            imageOnClick.style.maxWidth = '900px';
+            imageOnClick.style.maxHeight = '700px';
+            imageOnClick.style.minWidth = '900px';
+            imageOnClick.style.minHeight = '700px';
+            fullScreenClick.appendChild(imageOnClick);
+            imageClick.appendChild(fullScreenClick);
+            var imageDescription = document.createElement("div");
+            imageDescription.innerText = "Heading";
+            imageDescription.className = "imageDescription";
+            imageClick.appendChild(imageDescription);
+            var imageDescriptionClick = document.createElement("div");
+            imageDescriptionClick.innerText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry";
+            imageDescriptionClick.className = "descriptionOnClick";
+            imageClick.appendChild(imageDescriptionClick);
+            document.body.appendChild(imageClick);
+
+            for (let i = 0; i < numberOfImages; i++) {
+                var oReq = new XMLHttpRequest();
+                oReq.addEventListener("load", reqListener);
+                oReq.open("GET", "https://random.dog/woof.json");
+                oReq.send();
+
+                function reqListener() {
+                    data = JSON.parse(this.response);
+                    imagesContainerDiv = document.createElement("div");
+                    imagesContainerDiv.className = "imagesContainer";
+                    imagesContainerDiv.id = "imagesId-" + i;
+
+                    textGallertImage = document.createElement("div");
+                    textGallertImage.className = "textGalleryImage";
+                    textGallertImage.style.width = 300;
+                    var titleContent = document.createElement("div");
+                    titleContent.innerText = "Heading";
+                    titleContent.className = "title";
+                    textGallertImage.appendChild(titleContent);
+                    var descriptionContent = document.createElement("div");
+                    descriptionContent.innerText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry";
+                    descriptionContent.className = "description";
+                    textGallertImage.appendChild(descriptionContent);
+                    imagesContainerDiv.appendChild(textGallertImage);
+
+
+                    function expand(url, idx) {
+                        var imageOnClick = document.getElementById("fullScreenImage");
+                        imageOnClick.src = url;
+                        imageClick.style.visibility = "visible";
+                    }
+
+                    imagesContainerDiv.onclick = expand.bind(null, data.url, i);
+
+                    var extension = data.url.substring(data.url.lastIndexOf(".") + 1);
+                    if (extension.toLowerCase() == "mp4" || extension.toLowerCase() == "webm") {
+                        var video = document.createElement("video");
+                        video.className = "video";
+                        video.setAttribute("controls", true);
+                        video.style.maxWidth = "100%";
+                        video.style.maxHeight = "100%";
+
+                        var source = document.createElement("source");
+                        video.appendChild(source);
+                        source.src = data.url;
+                        imagesContainerDiv.appendChild(video);
+                    } else {
+                        var image = new Image();
+                        image.className = "image";
+                        image.style.maxWidth = "100%";
+                        image.style.maxHeight = "100%;"
+
+                        image.src = data.url;
+                        imagesContainerDiv.appendChild(image);
+                    }
+                    galleryDiv.appendChild(imagesContainerDiv);
+                }
+
+            }
+            document.body.appendChild(galleryDiv);
+
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

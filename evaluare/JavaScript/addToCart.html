@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+
+        .productsList {
+            display: flex;
+            justify-content: center;
+            flex-wrap:wrap;
+            width: 70%;
+            height: 100vh;
+            margin: 0;
+            overflow: auto;
+        }
+
+        .cartList {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-height: 100%;
+            width: 30%;
+            background: darkgray;
+            margin: 0 auto;
+            border-left: 2px solid black;
+            overflow: auto;
+        }
+
+        .cartList .product .btnAdd{
+            background: lightcoral;
+        }
+        .product{
+            position: relative;
+            height: 200px;
+            width: 300px;
+            margin: 20px;
+            padding: 0;
+            background: white;
+            box-shadow: 0px 0px 7px -2px rgba(0,0,0,0.75);
+            border-radius: 5px;
+            user-select: none;
+            
+        }
+        .image {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            display: inline-block;
+            height: 190px;
+            width: 120px;
+            box-shadow: 0px 0px 7px -2px rgba(0,0,0,0.75);
+        }
+        .productTitle {
+            position: absolute;
+            display: inline-block;
+            left: 135px;
+            margin:10px;
+        }
+        .productSpecs {
+            position: absolute;
+            display: inline-block;
+            top: 50px;
+            left: 130px;
+            font-weight: 100;
+            font-size: 12px;
+            padding:5px;
+            margin:0;
+            
+        }
+        .btnAdd {
+            display: inline-block;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            height: 30px;
+            width: 80px;
+            border-radius: 5px;
+            background-color: lightgreen;
+            border: 1px solid gainsboro;
+            font-size: 14px;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            margin: 0;
+            text-transform: uppercase;
+            cursor: pointer;
+            user-select: none;
+        }
+        .counter{
+            position: absolute;
+            display: inline-block;
+            top: 10px;
+            right: 10px;
+            font-size: 15px;
+            color: white;
+            background: coral;
+            padding: 3px;
+            border:1px solid gray;
+            border-radius: 2px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+        var data = [
+            {
+                title: "produs1",
+                specs: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus augue erat, non iaculis lectus suscipit sit amet. Nulla at dui volutpat, suscipit purus at, molestie nisl.",
+                btn: "Add",
+                img: "image.jpg"
+            },
+            {
+                title: "produs2",
+                specs: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus augue erat, non iaculis lectus suscipit sit amet. Nulla at dui volutpat, suscipit purus at, molestie nisl.",
+                btn: "Add",
+                img: "image.jpg"
+            },
+            {
+                title: "produs3",
+                specs: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus augue erat, non iaculis lectus suscipit sit amet. Nulla at dui volutpat, suscipit purus at, molestie nisl.",
+                btn: "Add",
+                img: "image.jpg"
+            },
+            {
+                title: "produs4",
+                specs: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus augue erat, non iaculis lectus suscipit sit amet. Nulla at dui volutpat, suscipit purus at, molestie nisl.",
+                btn: "Add",
+                img: "image.jpg"
+            },
+            {
+                title: "produs5",
+                specs: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus augue erat, non iaculis lectus suscipit sit amet. Nulla at dui volutpat, suscipit purus at, molestie nisl.",
+                btn: "Add",
+                img: "image.jpg"
+            },
+            {
+                title: "produs6",
+                specs: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus augue erat, non iaculis lectus suscipit sit amet. Nulla at dui volutpat, suscipit purus at, molestie nisl.",
+                btn: "Add",
+                img: "image.jpg"
+            }
+        ];
+        var productsList;
+        var cartList;
+
+
+        function start() {
+            productsList = document.createElement("div");
+            cartList = document.createElement("div");
+            productsList.className = "productsList";
+            cartList.className = "cartList";
+            document.body.appendChild(productsList);
+            document.body.appendChild(cartList);
+
+            for (var i = 0; i < data.length; i++) {
+                var product = document.createElement("div");
+                product.className = "product";
+                product.id = "product" + i;
+                var productTitle = document.createElement("h2");
+                productTitle.className ="productTitle";
+                productTitle.innerText = data[i].title;
+                var productSpecs = document.createElement("p");
+                productSpecs.className ="productSpecs";
+                productSpecs.innerText = data[i].specs;
+                var btnAdd = document.createElement("button");
+                btnAdd.className = "btnAdd";
+                btnAdd.innerText = data[i].btn;
+                btnAdd.id = "btnAdd" + i;
+                var image = document.createElement("img");
+                image.className = "image";
+                image.src = data[i].img;
+
+                productsList.appendChild(product);
+                product.appendChild(image);
+                product.appendChild(productTitle);
+                product.appendChild(productSpecs);
+                product.appendChild(btnAdd);
+
+                btnAdd.addEventListener("click", btnAddClick);
+            }
+
+        }
+
+        var cart = {};
+        var products = {}
+        function btnAddClick() {
+            var count;
+            var counter;
+            var parent = this.parentElement;
+            var parentId = this.parentElement.id;
+            var clone = parent.cloneNode(true);
+
+            if (cart[parentId] == null) {
+                cartList.appendChild(clone);
+
+                var btnRemove = clone.querySelector(".btnAdd");
+                btnRemove.innerText = "REMOVE"
+                btnRemove.addEventListener("click", btnRemoveClick);
+
+                cart[parentId] = { counter: 1, element: clone };
+                clone.id = parentId + "cartList";
+                clone.appendChild(btnRemove);
+
+                count = document.createElement("div");
+                count.className = "counter";
+                count.innerText = "x " + cart[parentId].counter;
+                clone.appendChild(count);
+            }
+            else {
+                cart[parentId].counter++;
+                var parentId2 = document.getElementById(parentId + "cartList");
+                parentId2.getElementsByClassName("counter")[0].innerText = "x " + cart[parentId].counter;
+
+            }
+            function btnRemoveClick() {
+                cart[parentId].counter--;
+                count.innerText = "x " + cart[parentId].counter;
+                if (cart[parentId].counter == 0) {
+                    delete cart[parentId];
+                    clone.parentNode.removeChild(clone)
+                }
+            }
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>responsive4</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://kit.fontawesome.com/7171c8ae67.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header>h2 {
+            color: mediumslateblue;
+        }
+
+        .circle {
+            width: 30px;
+            height: 30px;
+            border: 2px solid mediumslateblue;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+
+        .header {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .menu {
+            display: flex;
+            width: 100vw;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .btn {
+            color: lightgray;
+            padding: 10px;
+            padding-left: 35px;
+            padding-right: 35px;
+            border: 1px solid lightgray;
+            border-bottom: 1px solid mediumslateblue;
+            margin-left: 2px;
+            margin-right: 2px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            color: mediumslateblue;
+            border-color: mediumslateblue;
+            border-bottom-color: white;
+        }
+
+        hr {
+            border: 0.5px solid mediumslateblue;
+            margin-top: -1px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100vw;
+            margin-top: 50px;
+        }
+
+        .box-container {
+            position: relative;
+            width: 30vw;
+        }
+
+        .box {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background-color: mediumslateblue;
+            height: 250px;
+        }
+
+        .box>i {
+            position: absolute;
+            color: white;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 100px;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .content,
+            .header {
+                flex-direction: column;
+            }
+
+            .box-container {
+                display: inline-block;
+                width: 96%;
+                margin: auto;
+            }
+
+            .btn {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+
+            .content,
+            .header {
+                flex-direction: column;
+            }
+
+            .box {
+                width: 30%
+            }
+
+            .box-container>.box {
+                width: 96%;
+                margin: auto;
+            }
+            
+
+            .btn {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2>Responsive full Width Tabs</h2>
+        <div class="circles">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="btn">buton1</div>
+        <div class="btn">buton2</div>
+        <div class="btn">buton3</div>
+        <dic class="btn">buton4</dic>
+        <dic class="btn">buton5</dic>
+    </div>
+    <hr>
+    <div class="content">
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-ice-cream"></i>
+            </div>
+            <h4>Ice-cream</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin laoreet eleifend arcu, eu fermentum sapien
+                feugiat at. In lobortis fermentum augue, vitae viverra dolor accumsan vel. Etiam tempor, enim eget
+                imperdiet ornare, tellus nibh commodo neque, sit amet egestas libero nisi a dui. Sed iaculis dui et elit
+                tempus, sed sollicitudin quam dapibus. Nulla facilisi. Ut vel nulla ligula. Quisque congue eu ipsum quis
+                viverra. Suspendisse et ornare velit. Vestibulum eu tempus purus, non mattis felis. Quisque dignissim
+                lorem ligula, fringilla fringilla leo sagittis et. Maecenas bibendum sem id luctus ornare. </p>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-hamburger"></i>
+            </div>
+            <h4>Hamburger</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin laoreet eleifend arcu, eu fermentum sapien
+                feugiat at. In lobortis fermentum augue, vitae viverra dolor accumsan vel. Etiam tempor, enim eget
+                imperdiet ornare, tellus nibh commodo neque, sit amet egestas libero nisi a dui. Sed iaculis dui et elit
+                tempus, sed sollicitudin quam dapibus. Nulla facilisi. Ut vel nulla ligula. Quisque congue eu ipsum quis
+                viverra. Suspendisse et ornare velit. Vestibulum eu tempus purus, non mattis felis. Quisque dignissim
+                lorem ligula, fringilla fringilla leo sagittis et. Maecenas bibendum sem id luctus ornare. </p>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-pizza-slice"></i>
+            </div>
+            <h4>Pizza</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin laoreet eleifend arcu, eu fermentum sapien
+                feugiat at. In lobortis fermentum augue, vitae viverra dolor accumsan vel. Etiam tempor, enim eget
+                imperdiet ornare, tellus nibh commodo neque, sit amet egestas libero nisi a dui. Sed iaculis dui et elit
+                tempus, sed sollicitudin quam dapibus. Nulla facilisi. Ut vel nulla ligula. Quisque congue eu ipsum quis
+                viverra. Suspendisse et ornare velit. Vestibulum eu tempus purus, non mattis felis. Quisque dignissim
+                lorem ligula, fringilla fringilla leo sagittis et. Maecenas bibendum sem id luctus ornare. </p>
+        </div>
+    </div>
+</body>
+
+</html>

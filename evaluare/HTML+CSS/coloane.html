@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+
+        }
+
+        .div1 {
+            position: relative;
+            display: inline-block;
+            width: 250px;
+            height: 200px;
+            border: 1px solid black;
+            justify-content: center;
+            padding: 30px;
+            margin-right: 30px;
+            margin-top: 80px;
+            background: white;
+            box-shadow: 2px 0px 17px -6px rgba(59, 59, 59, 1);
+        }
+
+        .div2 {
+            top: 50%;
+            left: 50%;
+            margin-top: -170px;
+            margin-left: -25px;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            border-radius: 50%;
+            background: red;
+            z-index: -1;
+        }
+
+        .div1:hover {
+            z-index: 1;
+            background: rgb(76, 162, 189);
+        }
+
+        h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        hr {
+            width: 50px;
+            height: 2px;
+            background: rgb(145, 33, 33);
+            border: 0;
+        }
+    </style>
+    <script>
+        var container;
+        var div1;
+        var div2;
+        var h3;
+        var p;
+        var hr;
+        document.addEventListener("DOMContentLoaded", start);
+        function start() {
+
+            container = document.createElement("div")
+            document.body.appendChild(container)
+            for (var i = 0; i < 6; i++) {
+                div1 = document.createElement("div");
+                div2 = document.createElement("div");
+
+                container.appendChild(div1);
+                div1.appendChild(div2);
+                container.className = "container"
+                div1.className = "div1";
+                div2.className = "div2";
+
+
+
+                h3 = document.createElement('h3');
+                h3.innerHTML = "Lorem Ipsum";
+                div1.appendChild(h3);
+
+                hr = document.createElement("hr");
+                div1.appendChild(hr)
+
+                p = document.createElement('p');
+                p.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque, dui nec tempor bibendum, mi sem consequat nunc, a molestie ligula velit et neque. Aliquam aliquam, elit at ultrices congue, nibh lacus rutrum nibh, ut rutrum urna metus sit amet eros. Donec a tellus posuere, cursus arcu rhoncus, fermentum arcu.";
+                div1.appendChild(p)
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>responsive1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .top,
+        .bottom {
+            position: relative;
+            width: 96vw;
+            height: 60px;
+            background-color: black;
+            border-radius: 10px;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+
+        .bottom {
+            position: relative;
+            background-color: rgb(19, 62, 83);
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        .containerDivs {
+            position: relative;
+            width: 96vw;
+            height: calc(100vh - 140px);
+            margin: auto;
+        }
+
+        .containerSmallDivs {
+            display: inline-block;
+            position: relative;
+            width: 30%;
+            height: 100%;
+        }
+
+        .div2 {
+            position: relative;
+            width: 100%;
+            height: calc(60% - 10px);
+            background-color: orange;
+            border-radius: 10px;
+        }
+
+        .div3 {
+            position: relative;
+            width: 100%;
+            height: 40%;
+            border-radius: 10px;
+            background-color: darkgray;
+            margin-top: 10px;
+        }
+
+        .div1 {
+            position: relative;
+            width: calc(70% - 10px);
+            height: 100%;
+            margin-left: 5px;
+            background-color: darkcyan;
+            border-radius: 10px;
+            float: right;
+        }
+
+        @media screen and (max-width: 768px) {
+            .containerSmallDivs {
+                width: 100%;
+                height: calc(30% - 10px);
+            }
+
+            .div1 {
+                width: 100%;
+                height: calc(70% - 10px);
+                margin-bottom: 10px;
+            }
+
+            .div2 {
+                display: block;
+                width: 100%;
+                height: 50%;
+            }
+
+            .div3 {
+                display: block;
+                width: 100%;
+                height: 50%;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+            .containerSmallDivs {
+                width: 100%;
+                height: calc(30% - 10px);
+            }
+
+            .div1 {
+                width: 100%;
+                height: 70%;
+            }
+
+            .div2 {
+                display: inline-block;
+                width: calc(50% - 5px);
+                height: 100%;
+
+            }
+
+            .div3 {
+                display: inline-block;
+                width: calc(50% - 5px);
+                height: 100%;
+                margin-left: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top"></div>
+        <div class="containerDivs">
+            <div class="div1"></div>
+            <div class="containerSmallDivs">
+                <div class="div2"></div>
+                <div class="div3"></div>
+            </div>
+        </div>
+        <div class="bottom"></div>
+    </div>
+</body>
+
+</html>

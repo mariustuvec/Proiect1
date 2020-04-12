@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .sidebar-left {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: white;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            border-right: 2px solid black;
+        }
+
+        .sidebar-left a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .sidebar-left a:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        div.content {
+            margin-left: 200px;
+            padding: 1px 16px;
+            height: 1000px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .sidebar-left {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .sidebar-left a {
+                float: left;
+            }
+
+            div.content {
+                margin-left: 0;
+            }
+
+            .menu>.sidebar-right {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 300px) and (max-width: 768px) {
+
+            .menu>.sidebar-right {
+                display: inline-block;
+                cursor: pointer;
+                user-select: none;
+                transform: scale(2);
+                margin:20px;
+            }
+        
+
+        .sidebar-left a {
+            display: none;
+            text-align: center;
+            float: none;
+
+        }
+
+        .sidebar-left a.active {
+            display: none;
+            background-color: darkcyan;
+            color: white;
+        }
+
+        .sidebar-left {
+            font-family: Arial, Helvetica, sans-serif;
+            position: fixed;
+            background-color: white;
+            width: 170px;
+            left: -170px;
+            transition: left .25s;
+        }
+
+        .sidebar-left:hover {
+            left: 0;
+        }
+
+        .sidebar-left {
+            display: inline-block;
+        }
+
+        .sidebar-left>div {
+            border: 1px solid black;
+        }
+
+        .sidebar-left>div>a:hover {
+            background: #555;
+            color: white;
+        }
+
+        .sidebar-left>div>a {
+            display: inline-block;
+            background: white;
+            padding: 10px 60px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+        }
+
+
+
+        .sidebar-right {
+            display: inline-block;
+            color: black;
+            text-orientation: upright;
+            writing-mode: vertical-lr;
+            text-transform: uppercase;
+            
+
+        } 
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="menu">
+        <div class="sidebar-left">
+            <div><a href="#titlu1">titlu1</a></div>
+            <div><a href="#titlu2">titlu2</a></div>
+            <div><a href="#titlu3">titlu3</a></div>
+            <div><a href="#titlu4">titlu4</a></div>
+            <div><a href="#titlu5">titlu5</a></div>
+            <div><a href="#titlu6">titlu6</a></div>
+
+        </div>
+        <div class="sidebar-right">☰</div>
+
+
+        <div class="content">
+            <h2>Title1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta ut metus vitae scelerisque. Duis non
+                odio
+                ut est fringilla posuere. Curabitur vestibulum orci in arcu scelerisque bibendum. Integer nulla elit,
+                porttitor vitae posuere id, egestas eget felis. Curabitur nulla ex, pellentesque eget pulvinar quis,
+                lobortis eget risus. Quisque magna velit, suscipit gravida porttitor sed, efficitur vitae quam. Maecenas
+                et
+                tempus velit. </p>
+            <h3>Title2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta ut metus vitae scelerisque. Duis non
+                odio
+                ut est fringilla posuere. Curabitur vestibulum orci in arcu scelerisque bibendum. Integer nulla elit,
+                porttitor vitae posuere id, egestas eget felis. Curabitur nulla ex, pellentesque eget pulvinar quis,
+                lobortis eget risus. Quisque magna velit, suscipit gravida porttitor sed, efficitur vitae quam. Maecenas
+                et
+                tempus velit. </p>
+        </div>
+
+</body>

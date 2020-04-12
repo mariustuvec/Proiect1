@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            width: 800px;
+            height: 320px;
+            background: mediumseagreen;
+            border-radius: 10px;
+        }
+
+        .leftDiv {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 400px;
+            height: 320px;
+            color: white;
+            font-weight: bold;
+            border-right: 2px solid black;
+        }
+
+        .rightDiv {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 400px;
+            height: 400px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .divInput {
+            width: 270px;
+            height: 70px;
+            padding: 5px;
+            margin: auto;
+        }
+
+        input {
+            width: 230px;
+            padding: 10px;
+            font-weight: bold;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        .showResult {
+            color: black;
+            text-align: center;
+            line-height: 2;
+            font-family: Arial, Helvetica, sans-serif;
+            height: 35px;
+            background-color: white;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start)
+
+        var numbers = {
+            0: "",
+            1: "I",
+            2: "II",
+            3: "III",
+            4: "IV",
+            5: "V",
+            6: "VI",
+            7: "VII",
+            8: "VIII",
+            9: "IX",
+            10: "X",
+            20: "XX",
+            30: "XXX",
+            40: "XL",
+            50: "L",
+            60: "LX",
+            70: "LXX",
+            80: "LXXX",
+            90: "XC",
+            100: "C",
+            200: "CC",
+            300: "CCC",
+            400: "CD",
+            500: "D",
+            600: "DC",
+            700: "DCC",
+            800: "DCCC",
+            900: "CM",
+            1000: "M",
+            2000: "MM",
+            3000: "MMM",
+            4000: "MMMM"
+        };
+
+        var unitati;
+        var zeci;
+        var sute;
+        var mii;
+
+        function start() {
+            unitati = document.getElementById("unitati");
+            unitati.addEventListener("input", result);
+
+            zeci = document.getElementById("zeci");
+            zeci.addEventListener("input", result);
+
+            sute = document.getElementById("sute");
+            sute.addEventListener("input", result);
+
+            mii = document.getElementById("mii");
+            mii.addEventListener("input", result);
+        }
+
+        function result() {
+            var string = "";
+            var unitatiValue = + unitati.value;
+            var zeciValue = + zeci.value;
+            var suteValue = + sute.value;
+            var miiValue = + mii.value;
+
+            if (miiValue > 4) {
+                window.alert("You can't get past 4999");
+                miiValue = 4;
+            }
+
+            var sum = unitatiValue + zeciValue * 10 + suteValue * 100 + miiValue * 1000;
+
+            var resultA = document.getElementById("cifreArabe");
+            resultA.innerHTML = sum;
+
+            var resultR = document.getElementById("cifreRomane");
+            string += numbers[miiValue * 1000] + numbers[suteValue * 100] + numbers[zeciValue * 10] + numbers[unitatiValue];
+            resultR.innerHTML = string;
+
+            var divizori = 0;
+            var primeNr = document.getElementById("nrPrim");
+
+            if (sum > 2 && sum % 2 == 0) {
+                primeNr.innerHTML = "Nu";
+            } else if (sum == 2) {
+                primeNr.innerHTML = "Da";
+            } else {
+                for (var i = 3; i <= sum / 2; i += 2) {
+                    if (sum % i == 0) {
+                        divizori++;
+                    }
+                } if (divizori == 0) {
+                    primeNr.innerHTML = "Da";
+                } else {
+                    primeNr.innerHTML = "Nu";
+
+                }
+            }
+
+            var evenNr = document.getElementById("nrPar");
+
+            if (unitatiValue % 2 == 0) {
+                evenNr.innerHTML = "Da";
+            } else {
+                evenNr.innerHTML = "Nu";
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="leftDiv">
+            <div class="divInput">
+                <label>Unitati:</label>
+                <input type="text" id="unitati" maxlength="1" placeholder="Introduceti cifra unitatilor">
+            </div>
+            <div class="divInput">
+                <label>Zeci:</label>
+                <input type="text" id="zeci" maxlength="1" placeholder="Introduceti cifra zecilor">
+            </div>
+            <div class="divInput">
+                <label>Sute:</label>
+                <input type="text" id="sute" maxlength="1" placeholder="Introduceti cifra sutelor">
+            </div>
+            <div class="divInput">
+                <label>Mii:</label>
+                <input class="mii" type="text" id="mii" maxlength="1" placeholder="Introduceti cifra miilor">
+            </div>
+        </div>
+        <div class="rightDiv">
+            <div class="divInput">
+                <label>Rezultat cifre arabe:</label>
+                <div class="showResult" id="cifreArabe"></div>
+            </div>
+            <div class="divInput">
+                <label>Rezultat cifre romane:</label>
+                <div class="showResult" id="cifreRomane"></div>
+            </div>
+            <div class="divInput">
+                <label>Numarul este prim:</label>
+                <div class="showResult" id="nrPrim"></div>
+            </div>
+            <div class="divInput">
+                <label>Numarul este par:</label>
+                <div class="showResult" id="nrPar"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

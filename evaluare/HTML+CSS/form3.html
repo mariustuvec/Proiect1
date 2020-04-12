@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>form3</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .box {
+        width: 400px;
+        height: 440px;
+        border-radius: 10px;
+        background-color: rgb(204, 169, 102)
+    }
+
+    .box>h3 {
+        color: rgb(31, 31, 77);
+        margin-left: 20px;
+    }
+
+    #firstTxt,
+    #role,
+    #web,
+    #btn {
+        width: 346px;
+        padding: 10px;
+        margin-left: 15px;
+    }
+
+    #btn {
+        width: 370px;
+        background-color: rgb(31, 31, 77);
+        color: rgb(204, 169, 102);
+        border-radius: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    #fName,
+    #lName,
+    #eMail,
+    #phone {
+        width: 160px;
+        padding: 10px;
+    }
+
+    .title {
+        margin-bottom: 20px;
+    }
+
+    input {
+        border-radius: 5px;
+    }
+
+    .name {
+        margin-bottom: 20px;
+        display: inline-block;
+        margin-left: 15px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h3>Complete the form for 
+        <br>yoursalesforce needs</h3>
+                <form>
+                    <div class="title">
+                        <input type="text" id="firstTxt" placeholder="I need salesforce help with">
+                    </div>
+                    <div class="name">
+                        <input type="text" id="fName" placeholder="First Name">
+                        <input type="text" id="lName" placeholder="Last Name">
+                    </div>
+                    <div class="name">
+                        <input type="text" id="eMail" placeholder="E-mail">
+                        <input type="text" id="phone" placeholder="Phone">
+                    </div>
+                    <div class="title">
+                        <input type="text" id="role" placeholder="Your Role">
+                    </div>
+                    <div class="title">
+                        <input type="text" id="web" placeholder="Web Address">
+                    </div>
+                    <button type="submit" id="btn" placeholder="Submit">Submit</button>
+                </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>responsive3</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            margin: 20px;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            user-select: none;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 50px;
+            text-transform: uppercase;
+        }
+
+        .menu {
+            display: inline-flex;
+        }
+
+        .menu>li {
+            margin-left: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .image {
+            width: 100%;
+        }
+
+        .content {
+            margin-top: 30px;
+            display: flex;
+        }
+
+        .column1 {
+            margin-right: 30px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+
+            .header {
+                position: relative;
+                display: block;
+                height: auto;
+            }
+
+            .menu {
+                position: relative;
+                display: block;
+                text-align: center;
+                padding-left: 0;
+            }
+
+            .menu>li {
+                margin-left: 0;
+                margin-top: 5px;
+                background-color:gainsboro;
+                padding: 10px 0 10px 0;
+            }
+
+            .image {
+                position: relative;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2 class="logo">demo</h2>
+        <ul class="menu">
+            <li>home</li>
+            <li>about</li>
+            <li>work</li>
+            <li>contact</li>
+        </ul>
+    </div>
+
+    <img class="image" src="city.jpg" alt="demo">
+
+    <div class="content">
+        <div class="column1">
+            <h4>Main section</h4>
+            <p>Donec rhoncus nec justo facilisis ullamcorper. Integer eu tellus elit. Fusce aliquam venenatis dui quis commodo. Proin rhoncus neque a libero posuere finibus. Vestibulum pulvinar et ex sit amet ullamcorper. Phasellus id lacus scelerisque, tristique nibh vel, vestibulum tellus. Pellentesque a ultricies metus. Nullam luctus consequat pharetra. Aliquam maximus non urna eget maximus. Ut vel pellentesque neque. Maecenas gravida placerat enim sit amet auctor.</p>
+        </div>
+        <div class="column2">
+            <h4>Sub-section</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin laoreet eleifend arcu, eu fermentum sapien feugiat at. In lobortis fermentum augue, vitae viverra dolor accumsan vel. Etiam tempor, enim eget imperdiet ornare, tellus nibh commodo neque, sit amet egestas libero nisi a dui. Sed iaculis dui et elit tempus, sed sollicitudin quam dapibus. Nulla facilisi. Ut vel nulla ligula. Quisque congue eu ipsum quis viverra. Suspendisse et ornare velit. Vestibulum eu tempus purus, non mattis felis. Quisque dignissim lorem ligula, fringilla fringilla leo sagittis et. Maecenas bibendum sem id luctus ornare. Duis feugiat purus in tortor ornare, non maximus enim mattis. Vivamus vel diam iaculis, rutrum lectus vitae, ornare sem. Sed ac molestie nulla. Sed ut odio eros. Mauris maximus, tortor vitae accumsan vehicula, mauris enim feugiat tortor, vel commodo eros dolor vitae nulla.</p>
+        </div>
+    </div>
+</body>
+
+</html>
